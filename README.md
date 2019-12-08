@@ -54,66 +54,115 @@ try {
 fileReader = new FileReader("shuju.txt");
 
 int read = fileReader.read();
+
 subname=name.getText();
+
 subpwd=password.getText();
+
 while(read!=-1){
+
 System.out.print((char)read);
+
 read = fileReader.read();
+
 }			 
 if(fileReader.toString().contains(subname)&&fileReader.toString().contains(subpwd)){
+
 Information info=new Information();
-}			   
+
+}	
+
 else {
+
 JOptionPane.showMessageDialog(null, "用户名或密码错误");
+
 }			   
 }catch (IOException e) {
+
 System.out.println(e);
+
 }
 //读取数据语句
+
 public void readFile1() {
+
 try {
  fileReader = new FileReader("shuju.txt");
+ 
 int read = fileReader.read();
+
  subname=name.getText();
+ 
  subpwd=password.getText();   
+ 
 while(read!=-1){
+
 System.out.print((char)read);
+
 read = fileReader.read();
+
 }			   
-if(fileReader.toString().contains(subname)&&fileReader.toString().contains(subpwd)){		    
+if(fileReader.toString().contains(subname)&&fileReader.toString().contains(subpwd)){
+
 Model model=new Model();
+
 }			   
 else {
+
 JOptionPane.showMessageDialog(null, "用户名或密码错误");
+
  }			   		   
 }catch (IOException e) {
+
  // TODO Auto-generated catch block
+ 
 System.out.println(e);
 }
 }	
 //保存数据语句
 protected void do_button_actionPerformed(ActionEvent e){
+
 char[] password1 = passwordField1.getPassword();
+
 char[] password2 = passwordField2.getPassword();
+
 boolean equals = Arrays.equals(password1, password2);
+
 if (equals) {
+
 String str2=textField.getText()+","+passwordField1; 
+
 File f=new File("shuju.txt"); 
+
 try { if(!f.exists()) { 
+
 f.createNewFile(); } 
+
 FileWriter hu=new FileWriter(f,true);
+
 BufferedWriter buff=new BufferedWriter(hu); 
+
 buff.write(str2);
+
 buff.newLine(); 
+
 buff.flush(); 
+
 buff.close(); 
+
 JOptionPane.showMessageDialog(null, "注册成功"); 
+
 Denglu denglu=new Denglu();
 }
-catch(Exception e1) { e1.printStackTrace(); }					
+
+catch(Exception e1) { e1.printStackTrace(); }			
+
 } else {
+
 JOptionPane.showMessageDialog(this, "两次密码不同！", null,
+
 JOptionPane.WARNING_MESSAGE);
+
 }
 } 
 注释：
